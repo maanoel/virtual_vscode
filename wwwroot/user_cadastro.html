@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Novo Usuário</title>
+    <link rel="import" href="imports.html" />
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="includes/header.js"></script>
+    <script src="includes/hamburguer.js"></script>
+    <script src="includes/footer.js"></script>
+    <script src="includes/newsLetterjs.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <header_include>
+        </header_include>
+    </header>
+
+    <div class="hamburger_menu">
+        <hamburguer_include>
+        </hamburguer_include>
+    </div>
+
+    <!-- cadastro hidden usuário></!-->
+    <section id="newUser">
+
+        <form id="userForm" @submit="checkForm" class="form-horizontal" action='' method="POST">
+            <p v-if="errors.length">
+                <b>Por favor verifique os seguintes erros:</b>
+                <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                </ul>
+            </p>
+
+            <fieldset>
+                <div id="legend">
+                    <legend class="">Meu Cadastro</legend>
+                </div>
+
+                <div class="control-group">
+                    <!-- name  -->
+                    <label class="control-label" for="name">Nome</label>
+                    <div class="controls">
+                        <input v-model="name" id="name" type="text"  name="name" placeholder="Digite seu nome" class="form-control">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- sobrenome  -->
+                    <label class="control-label" for="lastName">Sobrenome</label>
+                    <div class="controls">
+                        <input v-model="lastName" type="text" id="lastName" name="lastName" placeholder="Digite seu sobrenome" class="form-control">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- E-mail -->
+                    <label class="control-label" for="email">E-mail</label>
+                    <div class="controls">
+                        <input v-model="email"type="text" id="email" name="email" placeholder="Digite seu email" class="form-control">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- Password-->
+                    <label class="control-label" for="password">Password</label>
+                    <div class="controls">
+                        <input v-model="password" type="password" id="password" name="password" placeholder="Digite sua senha" class="form-control">
+                        <p class="help-block">Sua senha precisa ter até 6 caractres.</p>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- Password -->
+                    <label class="control-label" for="password_confirm">Confirmar senha</label>
+                    <div class="controls">
+                        <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirme sua senha" class="form-control">
+                        <p class="help-block">Por favor confirme sua senha</p>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- birthday -->
+                    <label class="control-label" for="bithday">Aniversário</label>
+                    <div class="controls">
+                        <select id="birthday_day" name="days" class="form-control">
+                            <option>-</option>
+                        </select>
+                    </div>
+                    <div class="controls">
+                        <select id="birthday_mounth" name="days" class="form-control">
+                            <option>-</option>
+                        </select>
+                    </div>
+                    <div class="controls">
+                        <select id="birthday_year" name="days" class="form-control">
+                            <option>-</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- Button -->
+                    <div class="controls">
+                        <button class="btn btn-success">Cadastrar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <div class="newsletter">
+        <newsletter_include>
+        </newsletter_include>
+    </div>
+
+    <footer class="footer">
+        <footer_include>
+
+        </footer_include>
+    </footer>
+
+</body>
+</html>
+
+<script>
+    const app_user = new Vue({
+        el: '#userForm',
+        data: {
+            errors: [],
+            name: null,
+            lastName: null,
+            birthday: null,
+            password: null,
+            email: null
+        },
+        methods: {
+            checkForm: function (e) {
+
+                e.preventDefault();
+
+                formValidation();
+
+                axios.post("http://localhost:61868/api/login/v1/new_user",
+                    {
+                        Login: this.email,
+                        AccessKey: this.password,
+                        Name: this.name,
+                        LastName: this.lastName,
+                        Bithday: new Date()
+                    })
+                    .then(response => {
+                        location.href = "carrinho.html";
+                        Vue.prototype.$AccessToken = response.data.accessToken;
+                    })
+            }
+        }
+    })
+
+    function formValidation() {
+
+    }
+</script>

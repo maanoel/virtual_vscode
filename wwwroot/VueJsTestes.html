@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="js/vue.js"></script>
+    <title></title>
+
+    <!-- BINDING-->
+    <div id="root">
+        {{foo}}
+        {{name}}
+        <input type="text" id="teste" v-model="foo" />
+    </div>
+
+    <!-- v-for-->
+
+    <div id="root2">
+
+        <ul>
+            <li v-for="name in names"> <!-- Ou v-text="name"-->
+                {{name}}
+            </li>
+        </ul>
+
+        <input type="text" id="name" v-model="newName"/>
+        <button id="button" @click="addName">Add Name</button>
+
+    </div>
+
+</head>
+<body>
+    <script>
+
+        new Vue({
+            el: "#root",
+            data: {
+                foo: 'bar',
+                name : "Vitor"
+
+            }
+        });
+
+        var app = new Vue({
+            el: "#root2",
+
+            data: {
+                newName : '',
+                names:['VITOR','GABRIELE','MAICON']
+
+            },
+
+            methods: {
+                addName() {
+                    this.names.push(this.newName);
+
+                    this.newName = '';
+                }
+            },
+            mounted() {
+
+                /*Old way to associate event with javscript, I should use v-on instead of it.
+                document.querySelector("#button").addEventListener('click', () => {
+                    let name = document.querySelector("#name").value;
+                    app.names.push(name);
+                    name.value = '';
+                });
+                */
+            }
+
+
+        });
+
+    </script>
+</body>
+</html>
