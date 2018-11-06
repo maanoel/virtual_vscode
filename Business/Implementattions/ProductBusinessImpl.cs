@@ -27,7 +27,7 @@ namespace LojaVirtual.Business.Implementations
         }
 
         public void SaveFile(byte[] bytes, long? fileId) {
-            File.WriteAllBytes(@"C:\loja\produtos_imagem\" + fileId + ".png", bytes);
+            File.WriteAllBytes(@"/home/vitor777/Desktop/loja_virtual/produtos_imagem/" + fileId + ".png", bytes);
         }
 
         public void Delete(long id)

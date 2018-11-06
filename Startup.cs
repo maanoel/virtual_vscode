@@ -181,7 +181,7 @@ namespace LojaVirtual
             app.UseCookiePolicy(); ;
             app.UseFileServer(new FileServerOptions
             {
-                FileProvider = new PhysicalFileProvider(@"/home/vitor777/Desktop/produtos_imagem"),
+                FileProvider = new PhysicalFileProvider(@"/home/vitor777/Desktop/loja_virtual/produtos_imagem"),
                 RequestPath = new PathString("/lojavirtual/produtos_imagem"),
                 EnableDirectoryBrowsing = true
             });

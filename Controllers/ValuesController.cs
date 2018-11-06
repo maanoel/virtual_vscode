@@ -28,6 +28,7 @@ namespace loja_virtual.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
+            
         }
 
         // PUT api/values/5
