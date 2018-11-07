@@ -9,7 +9,7 @@
 
 <body>
     
-    <div class="super_container">
+    <div id="index" class="super_container">
 
         <!-- Header -->
 
@@ -576,7 +576,7 @@
         });
 
         const appIndex = new Vue({
-            el: "#products",
+            el: "#index",
             data: {
                 index: null,
                 productsArr: []
@@ -592,8 +592,39 @@
                             }); 
                             
                             setTimeout(appIndex.initSlider, 500);
+                            setTimeout(appIndex.initIsotopeFiltering, 500);
                         })
 
+                },
+                initIsotopeFiltering : function ()
+                {
+                    if($('.grid_sorting_button').length)
+                    {
+                        $('.grid_sorting_button').click(function()
+                        {
+                            // putting border fix inside of setTimeout because of the transition duration
+                            setTimeout(function()
+                            {
+                                initFixProductBorder();
+                            },500);
+
+                            $('.grid_sorting_button.active').removeClass('active');
+                            $(this).addClass('active');
+                    
+                            var selector = $(this).attr('data-filter');
+                            $('.product-grid').isotope({
+                                filter: selector,
+                                animationOptions: {
+                                    duration: 750,
+                                    easing: 'linear',
+                                    queue: false
+                                }
+                            });
+
+                            
+                            return false;
+                        });
+                    }
                 },
                 initSlider : function () {
                     if ($('.product_slider').length) {
