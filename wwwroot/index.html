@@ -330,7 +330,7 @@
                 </div>
             </div>
         </div> 
-        <!-- Newsletter -->
+        <!-- Newsletter 
 
         <div class="newsletter">
             <div class="container">
@@ -352,7 +352,7 @@
                 </div>
             </div>
         </div>
-
+        -->
         <!-- Footer -->
 
         <footer class="footer">
@@ -402,12 +402,13 @@
     }
 
     $(document).ready(function () {
+
         Vue.component("products_slider", {
             template: `
 				<div class="product-item">
 					<div class="product discount">
 						<div class="product_image">
-							<img :src="product.image_path" alt="">
+							<a href="single.html" @click="addToSession(product.id)"><img :src="product.image_path" alt=""></a>
 						</div>
 						<div class="favorite favorite_left"></div>
 						<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
@@ -416,19 +417,29 @@
 							<div class="product_price">{{ product.valor }}<span>{{product.descricao }}</span></div>
 						</div>
 					</div>
-                    <div class="red_button add_to_cart_button"><a href="#" >Adicionar ao Carrinho</a></div>
+                    <div class="red_button add_to_cart_button" @click="addToCart(product.id)"><a href="#" >Adicionar ao Carrinho</a></div>
 				</div>
                 `,
+                methods: {
+                    addToCart: function(id) {
+                        sessionStorage.setItem("carrinho_last", id);
+                        location.href="Carrinho.html";
+                    },
+                    addToSession: function(id){
+                        sessionStorage.setItem("single_id", id);
+                    }
+                },
             props: ['product']
         });
 
-        const appIndex = new Vue({
+        window.app = appIndex = new Vue({
             el: "#index",
             data: {
                 index: null,
                 productsArr: []
             },
             methods: {
+
                 getProducts: function () {
                     axios.get("https://localhost:5001/api/Product/v1/")
                         .then(function (response) {
@@ -523,5 +534,3 @@
     });
 
 </script>
-
-
