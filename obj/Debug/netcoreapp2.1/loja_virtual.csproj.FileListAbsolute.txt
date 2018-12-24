@@ -12,3 +12,17 @@
 /home/vitor777/Desktop/loja_virtual/obj/Debug/netcoreapp2.1/loja_virtual.RazorTargetAssemblyInfo.cache
 /home/vitor777/Desktop/loja_virtual/obj/Debug/netcoreapp2.1/loja_virtual.dll
 /home/vitor777/Desktop/loja_virtual/obj/Debug/netcoreapp2.1/loja_virtual.pdb
+/home/vitor777/virtual_vscode/bin/Debug/netcoreapp2.1/loja_virtual.deps.json
+/home/vitor777/virtual_vscode/bin/Debug/netcoreapp2.1/loja_virtual.runtimeconfig.json
+/home/vitor777/virtual_vscode/bin/Debug/netcoreapp2.1/loja_virtual.runtimeconfig.dev.json
+/home/vitor777/virtual_vscode/bin/Debug/netcoreapp2.1/loja_virtual.dll
+/home/vitor777/virtual_vscode/bin/Debug/netcoreapp2.1/loja_virtual.pdb
+/home/vitor777/virtual_vscode/obj/Debug/netcoreapp2.1/loja_virtual.csprojAssemblyReference.cache
+/home/vitor777/virtual_vscode/obj/Debug/netcoreapp2.1/loja_virtual.csproj.CoreCompileInputs.cache
+/home/vitor777/virtual_vscode/obj/Debug/netcoreapp2.1/loja_virtual.RazorAssemblyInfo.cache
+/home/vitor777/virtual_vscode/obj/Debug/netcoreapp2.1/loja_virtual.RazorAssemblyInfo.cs
+/home/vitor777/virtual_vscode/obj/Debug/netcoreapp2.1/loja_virtual.AssemblyInfoInputs.cache
+/home/vitor777/virtual_vscode/obj/Debug/netcoreapp2.1/loja_virtual.AssemblyInfo.cs
+/home/vitor777/virtual_vscode/obj/Debug/netcoreapp2.1/loja_virtual.RazorTargetAssemblyInfo.cache
+/home/vitor777/virtual_vscode/obj/Debug/netcoreapp2.1/loja_virtual.dll
+/home/vitor777/virtual_vscode/obj/Debug/netcoreapp2.1/loja_virtual.pdb
