@@ -42,7 +42,7 @@ namespace LojaVirtual.Business.Implementations
 
         public ProductVO FindById(long id)
         {
-            return null;
+            return _converter.Parse(_repository.FindById(id));
         }
 
         public ProductVO Update(ProductVO book)

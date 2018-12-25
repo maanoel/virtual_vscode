@@ -7,12 +7,12 @@
     <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="styles/single_styles.css">
     <link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
 
-    <div class="super_container">
+    <div id="index" class="super_container">
 
         <!-- Header -->
 
@@ -203,7 +203,12 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    
+
+                    <product_details v-bind:product="product"
+                                        v-bind:index="index"
+                                        v-bind:key="product.id">
+                    </product_details>
+
                 </div>
             </div>
 
@@ -475,21 +480,18 @@
 <script>
 $(document).ready(function(){
 
-    Vue.component("sigle_description", {
-        methods: {
-            teste: function (){alert(1)}
-        },
+    Vue.component("product_details", {
         template: `
         <div class="product_details">
             <div class="product_details_title">
-                <h2>Pocket cotton sweatshirt</h2>
+                <h2>{{product.descricao}}</h2>
                 <p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
             </div>
             <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
                 <span class="ti-truck"></span><span>free delivery</span>
             </div>
-            <div class="original_price">$629.99</div>
             <div class="product_price">$495.00</div>
+            <div class="original_price">$629.99</div>
             <ul class="star_rating">
                 <li><i class="fa fa-star" aria-hidden="true"></i></li>
                 <li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -516,8 +518,32 @@ $(document).ready(function(){
                 <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
             </div>
         </div>
-        `
-    })
+        `,
+        props: ['product']
+    });
+
+    window.app = appIndex = new Vue({
+        el: "#index",
+        data: {
+            index: null,
+            product: null
+        },
+
+        methods: {
+
+            getProduct: function () {
+                var url = "https://localhost:5001/api/Product/v1/id?id=" + sessionStorage.getItem("single_id");
+                axios.get(url)
+                .then(function (response) {
+                    appIndex.product = response.data;
+                })
+            }
+        },
+
+        mounted() {
+            this.getProduct();
+        }
+    });
 
 });
 </script>

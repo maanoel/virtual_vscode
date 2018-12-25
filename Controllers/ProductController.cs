@@ -35,5 +35,12 @@ namespace LojaVirtual.Controllers
         public IActionResult listarProdutos() {
             return new ObjectResult(_productBusiness.FindAll());
         }
+
+        [HttpGet("id")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult GetProductById([FromQuery(Name = "id")] string id){
+            return new ObjectResult(_productBusiness.FindById(Convert.ToInt32(id)));
+        }
+
     }
 }
