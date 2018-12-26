@@ -224,7 +224,7 @@
                         <div class="tabs_container">
                             <ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
                                 <li class="tab active" data-active-tab="tab_1"><span>Descrição</span></li>
-                                <li class="tab" data-active-tab="tab_3"><span>Comentários (2)</span></li>
+                                <li class="tab" data-active-tab="tab_2"><span>Comentários (2)</span></li>
                             </ul>
                         </div>
                     </div>
@@ -488,50 +488,74 @@ $(document).ready(function(){
                 <p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
             </div>
             <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
-                <span class="ti-truck"></span><span>free delivery</span>
+                <span class="ti-truck"></span><span>Entrega para todo Brasil</span>
             </div>
-            <div class="product_price">$495.00</div>
-            <div class="original_price">$629.99</div>
-            <ul class="star_rating">
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-            </ul>
-            <div class="product_color">
-                <span>Select Color:</span>
-                <ul>
-                    <li style="background: #e54e5d"></li>
-                    <li style="background: #252525"></li>
-                    <li style="background: #60b3f3"></li>
-                </ul>
-            </div>
+            <div class="original_price">{{product.valor}}</div>
+            <div class="product_price">{{product.valor}}</div>
             <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-                <span>Quantity:</span>
+                <span>Quantidade:</span>
                 <div class="quantity_selector">
-                    <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                    <span id="minus_q" @click="minus()" class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
                     <span id="quantity_value">1</span>
-                    <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span id="plus_q" @click="add()" class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
                 </div>
                 <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
                 <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
             </div>
         </div>
         `,
-        props: ['product']
+        props: ['product'],
+        methods: {
+
+            minus: function(){
+
+                var qt = document.getElementById("quantity_value").innerText;
+
+                qt = parseInt( qt);
+
+                if(qt != NaN){
+                    qt = qt = qt - 1;
+                }else{
+                    qt = 1;
+                }  
+                
+                if (qt <= 0) qt = 1;
+
+                document.getElementById("quantity_value").innerText = qt
+               
+
+            },
+            add: function(){
+                var qt = document.getElementById("quantity_value").innerText;
+
+                qt = parseInt( qt);
+
+                if(qt != NaN){
+                    qt = qt = qt + 1;
+                }else{
+                    qt = 1;
+                }  
+
+                if (qt <= 0) qt = 1;
+
+    
+                document.getElementById("quantity_value").innerText = qt
+            }
+        }
+
     });
 
     window.app = appIndex = new Vue({
         el: "#index",
         data: {
             index: null,
-            product: null
+            product: {id: 0}
         },
 
         methods: {
 
             getProduct: function () {
+               
                 var url = "https://localhost:5001/api/Product/v1/id?id=" + sessionStorage.getItem("single_id");
                 axios.get(url)
                 .then(function (response) {
@@ -546,4 +570,7 @@ $(document).ready(function(){
     });
 
 });
+
+
+
 </script>
