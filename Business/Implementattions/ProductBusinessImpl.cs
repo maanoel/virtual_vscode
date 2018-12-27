@@ -3,6 +3,7 @@ using LojaVirtual.Data.Converters;
 using LojaVirtual.Data.VO;
 using LojaVirtual.Repository.Generic;
 using System.IO;
+using LojaVirtual.Business.Implementations;
 
 namespace LojaVirtual.Business.Implementations
 {
@@ -21,18 +22,10 @@ namespace LojaVirtual.Business.Implementations
         {
             var productEntity = _converter.Parse(product);
             productEntity = _repository.Create(productEntity);
-            SaveFile(productEntity.Image, productEntity.Id);
+            SaveImageProduct  imageProducts= new SaveImageProduct(productEntity);
+            imageProducts.Save();
 
             return _converter.Parse(productEntity);
-        }
-
-        public void SaveFile(byte[] bytes, long? fileId) {
-            File.WriteAllBytes(@"/home/vitor777/Desktop/loja_virtual/produtos_imagem/" + fileId + ".png", bytes);
-        }
-
-        public void Delete(long id)
-        {
-          
         }
 
         public List<ProductVO> FindAll()
@@ -48,6 +41,11 @@ namespace LojaVirtual.Business.Implementations
         public ProductVO Update(ProductVO book)
         {
             return null;
+        }
+
+        public void Delete(long id){
+
+            
         }
     }
 }

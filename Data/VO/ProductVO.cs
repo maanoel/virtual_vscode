@@ -15,6 +15,14 @@ namespace LojaVirtual.Data.VO
         public int Quantidade { get; set; }
         public string ImageBas64 { get; set; }
         public string ImageUrl { get; set; }
+        public string ImageBas64_2 { get; set; }
+        public string ImageUrl_2 { get; set; }
+        public string ImageBas64_3 { get; set; }
+        public string ImageUrl_3 { get; set; }
+        public string ImageBas64_4 { get; set; }
+        public string ImageUrl_4 { get; set; }
+        public string ImageBas64_5 { get; set; }
+        public string ImageUrl_5 { get; set; }
 
         public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
 

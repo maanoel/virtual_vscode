@@ -47,12 +47,14 @@ jQuery(document).ready(function($)
 		setHeader();
 	});
 
-	initMenu();
-	initThumbnail();
-	initQuantity();
-	initStarRating();
-	initFavorite();
-	initTabs();
+	 window.initSingle = function (){
+		initMenu();
+		initThumbnail();
+		initQuantity();
+		initStarRating();
+		initFavorite();
+		initTabs();
+	}
 
 	/* 
 

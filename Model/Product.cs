@@ -7,6 +7,7 @@ namespace LojaVirtual.Model
     [Table("Product")]
     public class Product : BaseEntity
     {
+        public long? Id { get; set; }
         public string Descricao { get; set; }
         public decimal Valor { get; set; }
         public string Categoria { get; set; }
@@ -15,6 +16,9 @@ namespace LojaVirtual.Model
         public string Medida { get; set; }
         public int Quantidade { get; set; }
         public byte[] Image { get; set; }
-
+        public byte[] Image_2 { get; set; }
+        public byte[] Image_3 { get; set; }
+        public byte[] Image_4 { get; set; }
+        public byte[] Image_5 { get; set; }
     }
 }

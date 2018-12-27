@@ -23,7 +23,11 @@ namespace LojaVirtual.Data.Converters
                 Peso = origin.Peso,
                 Quantidade = origin.Quantidade,
                 Valor = origin.Valor,
-                Image = Convert.FromBase64String(origin.ImageBas64)
+                Image = Convert.FromBase64String(origin.ImageBas64),
+                Image_2 = Convert.FromBase64String(origin.ImageBas64_2),
+                Image_3 = Convert.FromBase64String(origin.ImageBas64_3),
+                Image_4 = Convert.FromBase64String(origin.ImageBas64_4),
+                Image_5 = Convert.FromBase64String(origin.ImageBas64_5)
             };
 
         }
@@ -42,7 +46,11 @@ namespace LojaVirtual.Data.Converters
                 Peso = origin.Peso,
                 Quantidade = origin.Quantidade,
                 Valor = origin.Valor,
-                ImageBas64 = Convert.ToBase64String(origin.Image)
+                ImageBas64 = Convert.ToBase64String(origin.Image),
+                ImageBas64_2 = Convert.ToBase64String(origin.Image_2),
+                ImageBas64_3 = Convert.ToBase64String(origin.Image_3),
+                ImageBas64_4 = Convert.ToBase64String(origin.Image_4),
+                ImageBas64_5 = Convert.ToBase64String(origin.Image_5)
             };
 
         }
