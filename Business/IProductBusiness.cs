@@ -10,7 +10,7 @@ namespace LojaVirtual.Business
         ProductVO Create(ProductVO book);
         ProductVO FindById(long id);
         List<ProductVO> FindAll();
-        ProductVO Update(ProductVO book);
+        ProductVO Update(ProductVO product);
         void Delete(long id);
     }
 }

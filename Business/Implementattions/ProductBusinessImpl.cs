@@ -38,9 +38,12 @@ namespace LojaVirtual.Business.Implementations
             return _converter.Parse(_repository.FindById(id));
         }
 
-        public ProductVO Update(ProductVO book)
-        {
-            return null;
+        public ProductVO Update(ProductVO product)
+        {   
+            var productEntity = _repository.FindById(product.Id?? 0); 
+            SaveImageProduct  imageProducts = new SaveImageProduct(_converter.Parse(product, productEntity));
+            imageProducts.Save();
+            return _converter.Parse(_repository.Update(_converter.Parse(product, productEntity)));
         }
 
         public void Delete(long id){

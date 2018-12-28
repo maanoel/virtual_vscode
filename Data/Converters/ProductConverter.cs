@@ -9,11 +9,34 @@ namespace LojaVirtual.Data.Converters
 {
     public class ProductConverter : IParser<ProductVO, Product>, IParser<Product, ProductVO>
     {
+        public Product Parse(ProductVO origin, Product dest){
+            
+            if (origin == null) return dest;
+
+            if(origin.Id != null) dest.Id = origin.Id;
+            if(origin.Categoria != null)dest.Categoria = origin.Categoria;
+            if(origin.Cor != null)dest.Cor = origin.Cor;
+            if(origin.Descricao != null)dest.Descricao = origin.Descricao;
+            if(origin.Medida != null)dest.Medida = origin.Medida;
+            if(origin.Peso > 0)dest.Peso = origin.Peso;
+            if(origin.Quantidade > 0)dest.Quantidade = origin.Quantidade;
+            if(origin.Valor > 0 )dest.Valor = origin.Valor;
+            
+            if(origin.ImageBas64 != null)  dest.Image = Convert.FromBase64String(origin.ImageBas64);
+            if(origin.ImageBas64_2 != null)  dest.Image_2 = Convert.FromBase64String(origin.ImageBas64_2);
+            if(origin.ImageBas64_3 != null)  dest.Image_3 = Convert.FromBase64String(origin.ImageBas64_3);
+            if(origin.ImageBas64_4 != null)  dest.Image_4 = Convert.FromBase64String(origin.ImageBas64_4);
+            if(origin.ImageBas64_5 != null)  dest.Image_5 = Convert.FromBase64String(origin.ImageBas64_5);
+
+            return dest;
+        }
+
         public Product Parse(ProductVO origin)
         {
+         
             if (origin == null) return new Product();
 
-            return new Product()
+           Product p =  new Product()
             {
                 Id = origin.Id,
                 Categoria = origin.Categoria,
@@ -22,13 +45,16 @@ namespace LojaVirtual.Data.Converters
                 Medida = origin.Medida,
                 Peso = origin.Peso,
                 Quantidade = origin.Quantidade,
-                Valor = origin.Valor,
-                Image = Convert.FromBase64String(origin.ImageBas64),
-                Image_2 = Convert.FromBase64String(origin.ImageBas64_2),
-                Image_3 = Convert.FromBase64String(origin.ImageBas64_3),
-                Image_4 = Convert.FromBase64String(origin.ImageBas64_4),
-                Image_5 = Convert.FromBase64String(origin.ImageBas64_5)
+                Valor = origin.Valor
             };
+
+            if(origin.ImageBas64 != null)  p.Image = Convert.FromBase64String(origin.ImageBas64);
+            if(origin.ImageBas64_2 != null)  p.Image_2 = Convert.FromBase64String(origin.ImageBas64_2);
+            if(origin.ImageBas64_3 != null)  p.Image_3 = Convert.FromBase64String(origin.ImageBas64_3);
+            if(origin.ImageBas64_4 != null)  p.Image_4 = Convert.FromBase64String(origin.ImageBas64_4);
+            if(origin.ImageBas64_5 != null)  p.Image_5 = Convert.FromBase64String(origin.ImageBas64_5);
+
+            return p;
 
         }
 
@@ -36,7 +62,7 @@ namespace LojaVirtual.Data.Converters
         {
             if (origin == null) return new ProductVO();
 
-            return new ProductVO()
+            ProductVO p = new ProductVO()
             {
                 Id = origin.Id,
                 Categoria = origin.Categoria,
@@ -45,13 +71,16 @@ namespace LojaVirtual.Data.Converters
                 Medida = origin.Medida,
                 Peso = origin.Peso,
                 Quantidade = origin.Quantidade,
-                Valor = origin.Valor,
-                ImageBas64 = Convert.ToBase64String(origin.Image),
-                ImageBas64_2 = Convert.ToBase64String(origin.Image_2),
-                ImageBas64_3 = Convert.ToBase64String(origin.Image_3),
-                ImageBas64_4 = Convert.ToBase64String(origin.Image_4),
-                ImageBas64_5 = Convert.ToBase64String(origin.Image_5)
+                Valor = origin.Valor
             };
+            
+            if(origin.Image != null ) p.ImageBas64 = Convert.ToBase64String(origin.Image);
+            if(origin.Image_2 != null ) p.ImageBas64_2 = Convert.ToBase64String(origin.Image_2);
+            if(origin.Image_3 != null ) p.ImageBas64_3 = Convert.ToBase64String(origin.Image_3);
+            if(origin.Image_4!= null ) p.ImageBas64_4 = Convert.ToBase64String(origin.Image_4);
+            if(origin.Image_5 != null ) p.ImageBas64_5 = Convert.ToBase64String(origin.Image_5);
+
+            return p;
 
         }
 

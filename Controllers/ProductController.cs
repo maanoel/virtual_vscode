@@ -42,5 +42,21 @@ namespace LojaVirtual.Controllers
             return new ObjectResult(_productBusiness.FindById(Convert.ToInt32(id)));
         }
 
-    }
+        [HttpPut]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        [ProducesResponseType(202)]
+        [ProducesResponseType(204)]
+        public IActionResult Put([FromBody] ProductVO product){
+            
+            if(product == null) return BadRequest();
+
+            var updated = _productBusiness.Update(product);
+
+            if(updated != null){
+                return new OkObjectResult(updated);
+            }else{
+                return NotFound();
+            }
+        }   
+   }
 }
