@@ -196,9 +196,10 @@
                             <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
                                 <div class="single_product_thumbnails">
                                     <ul>
-                                        <li><img src="images/single_1_thumb.jpg" alt="" data-image="images/single_1.jpg"></li>
-                                        <li class="active"><img src="images/single_2_thumb.jpg" alt="" data-image="images/single_2.jpg"></li>
-                                        <li><img src="images/single_3_thumb.jpg" alt="" data-image="images/single_3.jpg"></li>
+                                        
+                                        <li id="image_01"><img src="images/single_1_thumb.jpg" alt="" :data-image="product.image_path_2"></li>
+                                        <li id="image_02"class="active"><img src="images/single_2_thumb.jpg" alt="" :data-image="product.image_path_3"></li>
+                                        <li id="image_03"></liid><img src="images/single_3_thumb.jpg" alt="" :data-image="product.image_path_4"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -544,12 +545,11 @@ $(document).ready(function(){
                 axios.get(url)
                 .then(function (response) {
                     appIndex.product = response.data;
-                    appIndex.image_path = "lojavirtual\\produtos_imagem\\" + appIndex.product.id + ".png";
-                    appIndex.image_path_2 = "lojavirtual\\produtos_imagem\\" + appIndex.product.id + "_2.jpg";
-                    appIndex.image_path_3 = "lojavirtual\\produtos_imagem\\" + appIndex.product.id + "_3.jpg";
-                    appIndex.image_path_4 = "lojavirtual\\produtos_imagem\\" + appIndex.product.id + "_4.jpg";
-                    appIndex.image_path_5 = "lojavirtual\\produtos_imagem\\" + appIndex.product.id + "_5.jpg";
-
+                    appIndex.product.image_path = "lojavirtual/produtos_imagem/" + appIndex.product.id + ".png";
+                    appIndex.product.image_path_2 = "lojavirtual/produtos_imagem/" + appIndex.product.id + "_2.jpg";
+                    appIndex.product.image_path_3 = "lojavirtual/produtos_imagem/" + appIndex.product.id + "_3.jpg";
+                    appIndex.product.image_path_4 = "lojavirtual/produtos_imagem/" + appIndex.product.id + "_4.jpg";
+                    
                     window.initSingle();
                 })
             }

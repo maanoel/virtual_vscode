@@ -1,1 +1,1 @@
-alter table Product add `image` LONGBLOB NOT NULL
+alter table Product add `image` LONGBLOB NULL

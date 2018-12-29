@@ -1,7 +1,7 @@
 CREATE TABLE `Product` (
 	`Id` int(10) UNSIGNED primary key AUTO_INCREMENT,
 	`Descricao` VARCHAR(100) NULL DEFAULT NULL,
-	`Valor` decimal(6,4) NULL DEFAULT NULL,
+	`Valor` decimal(6,5) NULL DEFAULT NULL,
 	`Categoria` VARCHAR(50) NULL DEFAULT NULL,
 	`Peso` float NULL DEFAULT NULL,
 	`Cor` VARCHAR(50) NULL DEFAULT NULL,
