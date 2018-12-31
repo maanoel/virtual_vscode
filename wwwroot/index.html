@@ -413,12 +413,22 @@
 							<div class="product_price">{{ product.valor }}<span>{{product.descricao }}</span></div>
 						</div>
 					</div>
-                    <div class="red_button add_to_cart_button" @click="addToCart(product.id)"><a href="#" >Adicionar ao Carrinho</a></div>
+                    <div class="red_button add_to_cart_button" @click="addToCart(product)"><a href="#" >Adicionar ao Carrinho</a></div>
 				</div>
                 `,
                 methods: {
-                    addToCart: function(id) {
-                        sessionStorage.setItem("carrinho_last", id);
+                    addToCart: function(p) {
+                       
+                        var carrinho = JSON.parse(sessionStorage.getItem("carrinho"));
+                        
+                        if(carrinho){
+                            carrinho.push(p);
+                        }else{
+                            carrinho = [];
+                            carrinho.push(p);
+                        }
+
+                        sessionStorage.setItem("carrinho", JSON.stringify(carrinho));
                         location.href="Carrinho.html";
                     },
                     addToSession: function(id){

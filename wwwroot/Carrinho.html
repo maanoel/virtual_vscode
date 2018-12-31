@@ -9,7 +9,6 @@
     <script src="includes/header.js"></script>
     <script src="includes/hamburguer.js"></script>
     <script src="includes/footer.js"></script>
-    <script src="includes/newsLetterjs.js"></script>
 </head>
 <body>
     <!-- Nest tela o úsuário finaliza a compra, só pode finalizar se estiver logado
@@ -28,72 +27,18 @@
     <!-- meu carrinho de compras-->
     
     <div id="content"><script src="https://use.fontawesome.com/c560c025cf.js"></script>
-        <div class="container">
+        <div class="container" id="index">
            <div class="card shopping-cart" style="margin-top:50px;">
                     
                     <div class="card-body" >
                             <!-- PRODUCT -->
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-2 text-center">
-                                        <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
-                                </div>
-                                <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                                    <h4 class="product-name"><strong>Product Name</strong></h4>
-                                    <h4>
-                                        <small>Product description</small>
-                                    </h4>
-                                </div>
-                                <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                                    <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                                        <h6><strong>25.00 <span class="text-muted">x</span></strong></h6>
-                                    </div>
-                                    <div class="col-4 col-sm-4 col-md-4">
-                                        <div class="quantity">
-                                            <input type="button" value="+" class="plus">
-                                            <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
-                                                   size="4">
-                                            <input type="button" value="-" class="minus">
-                                        </div>
-                                    </div>
-                                    <div class="col-2 col-sm-2 col-md-2 text-right">
-                                        <button type="button" class="btn btn-outline-danger btn-xs">
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <!-- END PRODUCT -->
-                            <!-- PRODUCT -->
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-2 text-center">
-                                        <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
-                                </div>
-                                <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                                    <h4 class="product-name"><strong>Product Name</strong></h4>
-                                    <h4>
-                                        <small>Product description</small>
-                                    </h4>
-                                </div>
-                                <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                                    <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                                        <h6><strong>25.00 <span class="text-muted">x</span></strong></h6>
-                                    </div>
-                                    <div class="col-4 col-sm-4 col-md-4">
-                                        <div class="quantity">
-                                            <input type="button" value="+" class="plus">
-                                            <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
-                                                   size="4">
-                                            <input type="button" value="-" class="minus">
-                                        </div>
-                                    </div>
-                                    <div class="col-2 col-sm-2 col-md-2 text-right">
-                                        <button type="button" class="btn btn-outline-danger btn-xs">
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+
+                            <products_selling v-for="product in products" 
+                                                v-bind:product="product"
+                                                v-bind:index="index"
+                                                v-bind:key="product.id">
+                            </products_selling>
+        
                             <hr>
                             <!-- END PRODUCT -->
                         <div class="pull-right">
@@ -120,3 +65,69 @@
     </footer>
 </body>
 </html>
+
+<script language="javascript">
+
+    $(document).ready(function(){
+        Vue.component("products_selling",{
+
+            template: `<div class="row">
+                    <div class="col-12 col-sm-12 col-md-2 text-center">
+                            <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
+                    </div>
+                    <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                        <h4 class="product-name"><strong>Product Name</strong></h4>
+                        <h4>
+                            <small>Product description</small>
+                        </h4>
+                    </div>
+                    <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+                        <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+                            <h6><strong>25.00 <span class="text-muted">x</span></strong></h6>
+                        </div>
+                        <div class="col-4 col-sm-4 col-md-4">
+                            <div class="quantity">
+                                <input type="button" value="+" class="plus">
+                                <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
+                                        size="4">
+                                <input type="button" value="-" class="minus">
+                            </div>
+                        </div>
+                        <div class="col-2 col-sm-2 col-md-2 text-right">
+                            <button type="button" class="btn btn-outline-danger btn-xs">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>`,
+            methods: {
+               
+            },
+            props: [product]
+        });
+
+        window.app = appIndex = new Vue({
+            el: "#index",
+            data: {
+                index: null,
+                products: []
+            },
+            methods: {
+
+                getProducts: function () {
+                    axios.get("https://localhost:5001/api/Product/v1/")
+                        .then(function (response) {
+                                
+                        })
+
+                }
+            },
+
+            mounted() {
+                this.getProducts();
+            }
+    });
+
+});
+
+</script>
