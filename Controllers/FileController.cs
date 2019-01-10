@@ -26,7 +26,8 @@ namespace LojaVirtual.Controllers
         [Authorize("Bearer")]
         public IActionResult GetPDFFile()
         {
-            byte[] buffer = _fileBusiness.GetPDFFile();
+            byte[] buffer = _fileBusiness.GetPDFFile() as byte[];
+            
             if (buffer != null)
             {
                 HttpContext.Response.ContentType = "application/pdf";
