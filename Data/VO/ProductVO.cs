@@ -7,7 +7,7 @@ namespace LojaVirtual.Data.VO
     {
         public long? Id { get; set; }
         public string Descricao { get; set; }
-        public decimal Valor { get; set; }
+        public double Valor { get; set; }
         public double Peso { get; set; }
         public string Cor { get; set; }
         public string Categoria { get; set; }

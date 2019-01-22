@@ -485,8 +485,9 @@ $(document).ready(function(){
                     <span id="quantity_value">1</span>
                     <span id="plus_q" @click="add()" class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
                 </div>
-                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                
             </div>
+            <div @click="addToCart()" class="red_button" style="width:100%; margin-top:10px;"><a href="#">Adicionar ao Carrinho</a></div>
         </div>
         `,
         props: ['product'],
@@ -525,6 +526,23 @@ $(document).ready(function(){
 
     
                 document.getElementById("quantity_value").innerText = qt
+            },
+            addToCart : function (){
+
+               var carrinho = JSON.parse(sessionStorage.getItem("carrinho"));
+                    
+                if(carrinho){
+                    carrinho.push(p);
+                }else{
+                    carrinho = [];
+                    carrinho.push(p);
+                }
+
+                sessionStorage.setItem("carrinho", JSON.stringify(carrinho));
+                location.href="Carrinho.html";
+            },
+            addToSession: function(id){
+                sessionStorage.setItem("single_id", id);
             }
         }
 

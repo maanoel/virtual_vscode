@@ -71,7 +71,6 @@
     $(document).ready(function(){
         Vue.component("products_selling",{
             
-
             template: `<div class="row">
                     <div class="col-12 col-sm-12 col-md-2 text-center">
                             <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
@@ -114,21 +113,16 @@
                 products: []
             },
             methods: {
-
                 getProducts: function () {
                     axios.get("https://localhost:5001/api/Product/v1/")
                         .then(function (response) {
-
-                        })
-
+                    })
                 }
             },
-
             mounted() {
                 this.getProducts();
             }
     });
-
 });
 
 </script>
