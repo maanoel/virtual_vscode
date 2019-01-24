@@ -14,13 +14,26 @@ namespace LojaVirtual.Model
     {
         public int? Id {get; set;}
 
-        public List<ItemCarrinho> Itens { get; set; }
-
+        public List <ItemCarrinho> ItensPedido {get;set;}
         public int UserId { get; set; }
 
         public double Total = 0.0;
 
+        public  double Frete = 0.0;
         
+        public String EndBairro{get; set;}
 
+        public String EndRua {get;set;}
+        
+        public String EndNumero {get;set;}
+        
+        public String EndCep {get;set;}
+        
+        public String EndComplemento{get;set;}
+
+        public String EndCidade {get;set;}
+        
+        public String EndEstado {get;set;}
+        
     }
 }
