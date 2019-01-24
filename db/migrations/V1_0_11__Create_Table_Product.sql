@@ -1,4 +1,4 @@
-CREATE TABLE `Product` (
+CREATE TABLE IF NOT EXISTS `Product` (
 	`Id` int(10) UNSIGNED primary key AUTO_INCREMENT,
 	`Descricao` VARCHAR(100) NULL DEFAULT NULL,
 	`Valor` decimal(6,5) NULL DEFAULT NULL,

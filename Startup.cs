@@ -136,12 +136,13 @@ namespace LojaVirtual
             services.AddScoped<IBookBusiness, BookBusinessImpl>();
             services.AddScoped<ILoginBusiness, LoginBusinessImpl>();
             services.AddScoped<IProductBusiness, ProductBusinessImpl>();
+            services.AddScoped<ICarrinhoBusiness, CarrinhoBusinessImpl>();
             services.AddScoped<IFileBusiness, FileBusinessImpl>();
 
             services.AddScoped<IUserRepository, UserRepositoryImpl>();
             services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
             services.AddScoped<IProductRepository, ProductRepositoryImpl>();
-
+            services.AddScoped<ICarrinhoRepository, CarrinhoRepositoryImpl>();
             //Dependency Injection of GenericRepository
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
