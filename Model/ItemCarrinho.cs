@@ -8,12 +8,16 @@ namespace LojaVirtual.Model
     [Table("ItemCarrinho")]
     public class ItemCarrinho : BaseEntity
     {
-        public int Id {get; set;}
-
+        [Column("product_id")]
         public int ProductId {get; set;}
 
+        [Column("quantidade")]        
         public int Quantidade { get; set; }
-
-        public int CarrinhoId {get; set; }
+        
+        [ForeignKey("Carrinho")]
+        [Column("carrinho_id")] 
+        public long? CarrinhoId{get; set;}
+        public Carrinho Carrinho {get;set;}
+        
     }
 }

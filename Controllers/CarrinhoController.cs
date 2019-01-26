@@ -45,7 +45,7 @@ namespace LojaVirtual.Controllers
         public IActionResult Put([FromBody]Carrinho carrinho)
         {
             if (carrinho == null) return BadRequest();
-            var updatedCarrinho= _carrinhoBusiness.Update(carrinho);
+            var updatedCarrinho= _carrinhoBusiness.Create(carrinho);
             if (updatedCarrinho == null) return BadRequest();
             return new OkObjectResult(updatedCarrinho);
         }

@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `Carrinho` (
-  `Id` int(10) UNSIGNED  NOT NULL AUTO_INCREMENT,
+  `id` int(10) UNSIGNED  NOT NULL AUTO_INCREMENT,
   `total` FLOAT  NULL,
   `frete` FLOAT   NULL,
   `user_id` INT(10) NOT NULL,

@@ -31,13 +31,7 @@ namespace LojaVirtual.Business.Implementations
         }
         public Carrinho Update(Carrinho carrinho)
         {   
-            //Todo fazer o parse depois
-            /* */
-            //var productEntity = _repository.FindById(carrinho.Id?? 0); 
-
-            //return _converter.Parse(_repository.Update(_converter.Parse(product, productEntity)));
-
-            return null;
+            return _repository.Update(carrinho);
             
         }
 
