@@ -22,9 +22,9 @@ namespace LojaVirtual.Controllers
             _carrinhoBusiness = carrinho;
         }
 
-        
+       
         [HttpPost]
-        [SwaggerResponse((201), Type = typeof(Carrinho))]
+        [SwaggerResponse((202), Type = typeof(Carrinho))]
         [SwaggerResponse(400)]
         [SwaggerResponse(401)]
         [Authorize("Bearer")]
@@ -32,10 +32,11 @@ namespace LojaVirtual.Controllers
         public IActionResult Post([FromBody]Carrinho carrinho)
         {
             if (carrinho == null) return BadRequest();
-            return new OkObjectResult(_carrinhoBusiness.Create(carrinho));
+            var updatedCarrinho= _carrinhoBusiness.Create(carrinho);
+            if (updatedCarrinho == null) return BadRequest();
+            return new OkObjectResult(updatedCarrinho);
         }
 
-       
         [HttpPut]
         [SwaggerResponse((202), Type = typeof(Carrinho))]
         [SwaggerResponse(400)]
@@ -45,10 +46,11 @@ namespace LojaVirtual.Controllers
         public IActionResult Put([FromBody]Carrinho carrinho)
         {
             if (carrinho == null) return BadRequest();
-            var updatedCarrinho= _carrinhoBusiness.Create(carrinho);
+            var updatedCarrinho= _carrinhoBusiness.Update(carrinho);
             if (updatedCarrinho == null) return BadRequest();
             return new OkObjectResult(updatedCarrinho);
         }
+        
 
     }
 }

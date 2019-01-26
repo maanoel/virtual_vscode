@@ -16,9 +16,8 @@ namespace LojaVirtual.Model
         
         [Column("user_id")]
         public int UserId { get; set; }
-
+    
         public double Total = 0.0;
-
         public  double Frete = 0.0;
         
         [Column("end_bairro")]
@@ -28,7 +27,7 @@ namespace LojaVirtual.Model
         public String EndRua {get;set;}
         
         [Column("end_numero")]
-        public String EndNumero {get;set;}
+        public int EndNumero {get;set;}
 
          [Column("end_cep")]
         public String EndCep {get;set;}
