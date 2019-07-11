@@ -16,7 +16,8 @@ namespace LojaVirtual.Data.Converters
                 AccessKey = origin.AccessKey,
                 LastName = origin.LastName,
                 Name = origin.Name,
-                Birthday = origin.Birthday
+                Birthday = origin.Birthday,
+                Email = origin.Email
             };
         }
 
@@ -29,7 +30,8 @@ namespace LojaVirtual.Data.Converters
                 AccessKey = origin.AccessKey,
                 Name= origin.Name,
                 LastName = origin.LastName,
-                Birthday = origin.Birthday
+                Birthday = origin.Birthday,
+                Email = origin.Email
 
             };
         }

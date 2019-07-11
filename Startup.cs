@@ -138,6 +138,7 @@ namespace LojaVirtual
             services.AddScoped<IProductBusiness, ProductBusinessImpl>();
             services.AddScoped<ICarrinhoBusiness, CarrinhoBusinessImpl>();
             services.AddScoped<IFileBusiness, FileBusinessImpl>();
+            services.AddScoped<IUserBusiness, UserBusinessImpl>();
 
             services.AddScoped<IUserRepository, UserRepositoryImpl>();
             services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
@@ -180,12 +181,7 @@ namespace LojaVirtual
 
             app.UseStaticFiles();
             app.UseCookiePolicy(); ;
-            app.UseFileServer(new FileServerOptions
-            {
-                FileProvider = new PhysicalFileProvider(@"/home/vitor777/Desktop/loja_virtual/produtos_imagem"),
-                RequestPath = new PathString("/lojavirtual/produtos_imagem"),
-                EnableDirectoryBrowsing = true
-            });
+          
 
             //Enable Swagger
             app.UseSwagger();

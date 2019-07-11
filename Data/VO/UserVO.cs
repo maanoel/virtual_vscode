@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Tapioca.HATEOAS;
+using System.Collections.Generic;
+using System;
 
 namespace LojaVirtual.Model
 {
@@ -9,5 +11,7 @@ namespace LojaVirtual.Model
         public string Name { get;  set; }
         public string LastName { get; set; }
         public DateTime Birthday { get; set; }
+        public string Email { get; set; }
+        
     }
 }
