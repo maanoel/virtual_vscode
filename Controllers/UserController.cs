@@ -108,7 +108,7 @@ namespace LojaVirtual.Controllers
         [SwaggerResponse((201), Type = typeof(UserVO))]
         [SwaggerResponse(400)]
         [SwaggerResponse(401)]
-        [Authorize("Bearer")]
+        
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody]UserVO user)
         {
