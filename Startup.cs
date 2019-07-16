@@ -139,7 +139,9 @@ namespace LojaVirtual
             services.AddScoped<ICarrinhoBusiness, CarrinhoBusinessImpl>();
             services.AddScoped<IFileBusiness, FileBusinessImpl>();
             services.AddScoped<IUserBusiness, UserBusinessImpl>();
+            services.AddScoped<ISubstanceBusiness, SubstanceBusinessImpl>();
 
+            services.AddScoped<ISubstanceRepository, SubstanceRepositoryImpl>();
             services.AddScoped<IUserRepository, UserRepositoryImpl>();
             services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
             services.AddScoped<IProductRepository, ProductRepositoryImpl>();
