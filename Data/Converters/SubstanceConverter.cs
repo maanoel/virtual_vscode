@@ -2,6 +2,7 @@
 using LojaVirtual.Data.Converter;
 using LojaVirtual.Model;
 using System.Linq;
+using System;
 
 namespace LojaVirtual.Data.Converters
 {
@@ -17,7 +18,7 @@ namespace LojaVirtual.Data.Converters
                 Description = origin.Description,
                 Composto = origin.Composto,
                 DataRegistro = origin.DataRegistro,
-                Base64Image = origin.Base64Image
+                Base64Image = Convert.FromBase64String(origin.Base64Image)
             };
         }
 
@@ -31,7 +32,7 @@ namespace LojaVirtual.Data.Converters
                 Description = origin.Description,
                 Composto = origin.Composto,
                 DataRegistro = origin.DataRegistro,
-                Base64Image = origin.Base64Image
+                Base64Image = Convert.ToBase64String(origin.Base64Image)
 
             };
         }

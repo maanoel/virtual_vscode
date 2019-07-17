@@ -39,7 +39,7 @@ namespace LojaVirtual.Controllers
         [SwaggerResponse(204)]
         [SwaggerResponse(400)]
         [SwaggerResponse(401)]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
