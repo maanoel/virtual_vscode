@@ -6,6 +6,7 @@ namespace LojaVirtual.Model
 {
     public class SubstanceVO
     {
+        public int Id {get; set;}
         public string Name { get; set; }
         public string NameScientific { get; set; }
         public string Description { get; set; }

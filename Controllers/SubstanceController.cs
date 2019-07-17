@@ -12,7 +12,7 @@ namespace LojaVirtual.Controllers
 
     /* Mapeia as requisições de http://localhost:{porta}/api/persons/v1/
     Por padrão o ASP.NET Core mapeia todas as classes que extendem Controller
-    pegando a primeira parte do nome da classe em lower case [user]Controller
+    pegando a primeira parte do nome da classe em lower case [substance]Controller
     e expõe como endpoint REST
     */
     [ApiVersion("1")]
@@ -31,8 +31,8 @@ namespace LojaVirtual.Controllers
 
         // Configura o Swagger para a operação
         // http://localhost:{porta}/api/persons/v1/
-        // [SwaggerResponse((202), Type = typeof(List<user>))]
-        // determina o objeto de retorno em caso de sucesso List<user>
+        // [SwaggerResponse((202), Type = typeof(List<substance>))]
+        // determina o objeto de retorno em caso de sucesso List<substance>
         // O [SwaggerResponse(XYZ)] define os códigos de retorno 204, 400 e 401
         [HttpGet]
         [SwaggerResponse((200), Type = typeof(List<SubstanceVO>))]
@@ -48,8 +48,8 @@ namespace LojaVirtual.Controllers
 
         // Configura o Swagger para a operação
         // http://localhost:{porta}/api/persons/v1/
-        // [SwaggerResponse((202), Type = typeof(List<user>))]
-        // determina o objeto de retorno em caso de sucesso List<user>
+        // [SwaggerResponse((202), Type = typeof(List<substance>))]
+        // determina o objeto de retorno em caso de sucesso List<substance>
         // O [SwaggerResponse(XYZ)] define os códigos de retorno 204, 400 e 401
         [HttpGet("find-by-name")]
         [SwaggerResponse((200), Type = typeof(List<SubstanceVO>))]
@@ -65,8 +65,8 @@ namespace LojaVirtual.Controllers
 
         // Configura o Swagger para a operação
         // http://localhost:{porta}/api/persons/v1/
-        // [SwaggerResponse((202), Type = typeof(List<user>))]
-        // determina o objeto de retorno em caso de sucesso List<user>
+        // [SwaggerResponse((202), Type = typeof(List<substance>))]
+        // determina o objeto de retorno em caso de sucesso List<substance>
         // O [SwaggerResponse(XYZ)] define os códigos de retorno 204, 400 e 401
         [HttpGet("find-with-paged-search/{sortDirection}/{pageSize}/{page}")]
         [SwaggerResponse((200), Type = typeof(List<SubstanceVO>))]
@@ -82,8 +82,8 @@ namespace LojaVirtual.Controllers
 
         // Configura o Swagger para a operação
         // http://localhost:{porta}/api/persons/v1/{id}
-        // [SwaggerResponse((202), Type = typeof(user))]
-        // determina o objeto de retorno em caso de sucesso user
+        // [SwaggerResponse((202), Type = typeof(substance))]
+        // determina o objeto de retorno em caso de sucesso substance
         // O [SwaggerResponse(XYZ)] define os códigos de retorno 204, 400 e 401
         [HttpGet("{id}")]
         [SwaggerResponse((200), Type = typeof(SubstanceVO))]
@@ -94,15 +94,15 @@ namespace LojaVirtual.Controllers
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(long id)
         {
-            var user = _substanceBusiness.FindById(id);
-            if (user == null) return NotFound();
-            return new OkObjectResult(user);
+            var substance = _substanceBusiness.FindById(id);
+            if (substance == null) return NotFound();
+            return new OkObjectResult(substance);
         }
 
         // Configura o Swagger para a operação
         // http://localhost:{porta}/api/
-        // [SwaggerResponse((202), Type = typeof(user))]
-        // determina o objeto de retorno em caso de sucesso user
+        // [SwaggerResponse((202), Type = typeof(substance))]
+        // determina o objeto de retorno em caso de sucesso substance
         // O [SwaggerResponse(XYZ)] define os códigos de retorno 400 e 401
         [HttpPost]
         [SwaggerResponse((201), Type = typeof(SubstanceVO))]
@@ -110,15 +110,15 @@ namespace LojaVirtual.Controllers
         [SwaggerResponse(401)]
         
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Post([FromBody]SubstanceVO user)
+        public IActionResult Post([FromBody]SubstanceVO substance)
         {
-            if (user == null) return BadRequest();
-            return new OkObjectResult(_substanceBusiness.Create(user));
+            if (substance == null) return BadRequest();
+            return new OkObjectResult(_substanceBusiness.Create(substance));
         }
 
         // Configura o Swagger para a operação
         // http://localhost:{porta}/api/persons/v1/
-        // determina o objeto de retorno em caso de sucesso user
+        // determina o objeto de retorno em caso de sucesso substance
         // O [SwaggerResponse(XYZ)] define os códigos de retorno 400 e 401
         [HttpPut]
         [SwaggerResponse((202), Type = typeof(SubstanceVO))]
@@ -126,10 +126,10 @@ namespace LojaVirtual.Controllers
         [SwaggerResponse(401)]
         [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Put([FromBody]SubstanceVO user)
+        public IActionResult Put([FromBody]SubstanceVO substance)
         {
-            if (user == null) return BadRequest();
-            var updatedPerson = _substanceBusiness.Update(user);
+            if (substance == null) return BadRequest();
+            var updatedPerson = _substanceBusiness.Update(substance);
             if (updatedPerson == null) return BadRequest();
             return new OkObjectResult(updatedPerson);
         }
@@ -137,7 +137,7 @@ namespace LojaVirtual.Controllers
 
         // Configura o Swagger para a operação
         // http://localhost:{porta}/api/persons/v1/
-        // determina o objeto de retorno em caso de sucesso user
+        // determina o objeto de retorno em caso de sucesso substance
         // O [SwaggerResponse(XYZ)] define os códigos de retorno 400 e 401
         [HttpPatch]
         [SwaggerResponse((202), Type = typeof(SubstanceVO))]
@@ -145,10 +145,10 @@ namespace LojaVirtual.Controllers
         [SwaggerResponse(401)]
         [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Patch([FromBody]SubstanceVO user)
+        public IActionResult Patch([FromBody]SubstanceVO substance)
         {
-            if (user == null) return BadRequest();
-            var updatedPerson = _substanceBusiness.Update(user);
+            if (substance == null) return BadRequest();
+            var updatedPerson = _substanceBusiness.Update(substance);
             if (updatedPerson == null) return BadRequest();
             return new OkObjectResult(updatedPerson);
         }
