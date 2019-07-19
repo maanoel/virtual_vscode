@@ -13,6 +13,7 @@ namespace LojaVirtual.Data.Converters
             if (origin == null) return new Substance();
             return new Substance
             {
+                Id = origin.Id,
                 Name = origin.Name,
                 NameScientific = origin.NameScientific,
                 Description = origin.Description,
@@ -26,8 +27,9 @@ namespace LojaVirtual.Data.Converters
         {
             if (origin == null) return new SubstanceVO();
             return new SubstanceVO
-            {
-               Name = origin.Name,
+            {   
+                Id = origin.Id,
+                Name = origin.Name,
                 NameScientific = origin.NameScientific,
                 Description = origin.Description,
                 Composto = origin.Composto,
