@@ -18,6 +18,7 @@ namespace LojaVirtual.Model.Context
         public DbSet<Substance> Substances { get; set; }
         public DbSet<ItemCarrinho> ItensCarrinho { get; set; }
         public DbSet<Carrinho> Carrinhos { get; set; }
+        public DbSet<Comment> Comment { get; set; }
         
     }
 }
