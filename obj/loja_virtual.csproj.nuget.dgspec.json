@@ -1,34 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\manoel.moura\\Documents\\virtual_vscode\\loja_virtual.csproj": {}
+    "C:\\Users\\manoel.vitor\\Desktop\\virtual_vscode\\loja_virtual.csproj": {}
   },
   "projects": {
-    "C:\\Users\\manoel.moura\\Documents\\virtual_vscode\\loja_virtual.csproj": {
+    "C:\\Users\\manoel.vitor\\Desktop\\virtual_vscode\\loja_virtual.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\manoel.moura\\Documents\\virtual_vscode\\loja_virtual.csproj",
+        "projectUniqueName": "C:\\Users\\manoel.vitor\\Desktop\\virtual_vscode\\loja_virtual.csproj",
         "projectName": "loja_virtual",
-        "projectPath": "C:\\Users\\manoel.moura\\Documents\\virtual_vscode\\loja_virtual.csproj",
-        "packagesPath": "C:\\Users\\manoel.moura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\manoel.moura\\Documents\\virtual_vscode\\obj\\",
+        "projectPath": "C:\\Users\\manoel.vitor\\Desktop\\virtual_vscode\\loja_virtual.csproj",
+        "packagesPath": "C:\\Users\\manoel.vitor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\manoel.vitor\\Desktop\\virtual_vscode\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\manoel.moura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\manoel.vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.1"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.1": {
+          "netcoreapp3.1": {
             "projectReferences": {}
           }
         },
@@ -39,7 +39,7 @@
         }
       },
       "frameworks": {
-        "netcoreapp2.1": {
+        "netcoreapp3.1": {
           "dependencies": {
             "Evolve": {
               "target": "Package",
@@ -48,16 +48,6 @@
             "Microsoft.ApplicationInsights.AspNetCore": {
               "target": "Package",
               "version": "[2.5.1, )"
-            },
-            "Microsoft.AspNetCore.All": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
-            "Microsoft.AspNetCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.1, )",
-              "autoReferenced": true
             },
             "Microsoft.AspNetCore.Mvc.Versioning": {
               "target": "Package",
@@ -68,12 +58,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.4, )"
-            },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.0, )",
-              "autoReferenced": true
             },
             "MySql.Data": {
               "target": "Package",
@@ -97,10 +81,42 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.2, 3.1.2]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.6.20318.15\\RuntimeIdentifierGraph.json"
         }
       }
     }

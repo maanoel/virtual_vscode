@@ -1,0 +1,6 @@
+C:\Users\manoel.vitor\Desktop\virtual_vscode\obj\Debug\netcoreapp5.0\loja_virtual.csprojAssemblyReference.cache
+C:\Users\manoel.vitor\Desktop\virtual_vscode\obj\Debug\netcoreapp5.0\loja_virtual.AssemblyInfoInputs.cache
+C:\Users\manoel.vitor\Desktop\virtual_vscode\obj\Debug\netcoreapp5.0\loja_virtual.AssemblyInfo.cs
+C:\Users\manoel.vitor\Desktop\virtual_vscode\obj\Debug\netcoreapp5.0\loja_virtual.csproj.CoreCompileInputs.cache
+C:\Users\manoel.vitor\Desktop\virtual_vscode\obj\Debug\netcoreapp5.0\loja_virtual.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\manoel.vitor\Desktop\virtual_vscode\obj\Debug\netcoreapp5.0\loja_virtual.MvcApplicationPartsAssemblyInfo.cache
